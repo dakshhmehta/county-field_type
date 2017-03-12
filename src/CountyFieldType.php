@@ -8,7 +8,7 @@ class CountyFieldType extends SelectFieldType
 
     protected $filterView = 'anomaly.field_type.text::input';
 
-	/**
+    /**
      * The field type config.
      *
      * @var array
