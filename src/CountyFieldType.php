@@ -4,7 +4,7 @@ use Anomaly\SelectFieldType\SelectFieldType;
 
 class CountyFieldType extends SelectFieldType
 {
-	protected $inputView = 'anomaly.field_type.county::input';
+    protected $inputView = 'anomaly.field_type.county::input';
 
     protected $filterView = 'anomaly.field_type.text::input';
 
