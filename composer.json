@@ -1,0 +1,26 @@
+{
+    "name": "anomaly/county-field_type",
+    "type": "streams-addon",
+    "keywords": [
+        "cms",
+        "pyro",
+        "pyrocms",
+        "php cms",
+        "laravel cms"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daksh Mehta",
+            "email": "dakshhmehta@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Anomaly\\CountyFieldType\\": "src/"
+        }
+    },
+    "require": {
+    	"anomaly/select-field_type": "~2.2.0"
+    }
+}

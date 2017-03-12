@@ -1,0 +1,16 @@
+
+{{ asset_add('scripts.js', 'anomaly.field_type.county::assets/county.js') }}
+
+<select
+        class="custom-select form-control county_field"
+        data-depends="{{ field_type.config.depends_on }}"
+        name="{{ field_type.input_name }}"
+        data-required="{{ field_type.required }}">
+
+    <option value="" disabled {{ not field_type.value ? 'selected' }}>{{ trans(field_type.placeholder) }}</option>
+
+    {% for value, option in field_type.options %}
+        <option value="{{ value }}" {{ value == field_type.value ? 'selected' }}>{{ trans(option) }}</option>
+    {% endfor %}
+
+</select>
