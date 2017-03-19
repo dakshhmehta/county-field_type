@@ -1,4 +1,4 @@
-function fillCounties(field, state) {
+function fillCounties(field, state, default_value) {
 	console.log("Loading counties");
 
 	if($(field).data("required") == 0){
@@ -10,9 +10,14 @@ function fillCounties(field, state) {
 
 	var field_name = $(field).attr("name");
 
+	if(default_value === undefined){
+		default_value = localStorage.getItem(field_name);
+	}
+	console.log(default_value);
+
 	$.get(APPLICATION_URL+"/field_types/county/"+state, function( data ) {
 		for(var k in data){
-			$(field).html($(field).html() + "<option value=\""+data[k]+"\" "+((localStorage.getItem(field_name) == k) ? "selected=\"selected\"" : "")+">"+data[k]+"</option>");
+			$(field).html($(field).html() + "<option value=\""+data[k]+"\" "+((default_value == data[k]) ? "selected=\"selected\"" : "")+">"+data[k]+"</option>");
 		}
 	});
 }
@@ -20,10 +25,10 @@ function fillCounties(field, state) {
 $(document).ready(function(){
 	$('.county_field').each(function(){
 		$depends_on = $("select[name="+$(this).data('depends')+"]");
-		$field = (this);
+		$field = $(this);
 		if($depends_on.val() != null && $depends_on.val() != "")
 		{
-			fillCounties($(this), $depends_on.val());
+			fillCounties($(this), $depends_on.val(), $field.data('value'));
 		}
 
 		$depends_on.change(function(){

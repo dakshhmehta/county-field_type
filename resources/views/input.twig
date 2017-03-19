@@ -5,6 +5,7 @@
         class="custom-select form-control county_field"
         data-depends="{{ field_type.config.depends_on }}"
         name="{{ field_type.input_name }}"
+        data-value="{{ field_type.value }}"
         data-required="{{ field_type.required }}">
 
     <option value="" disabled {{ not field_type.value ? 'selected' }}>{{ trans(field_type.placeholder) }}</option>
